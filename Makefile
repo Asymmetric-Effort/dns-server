@@ -2,8 +2,8 @@ DOCKER_HUB:=docker.internal.asymmetric-effort.com
 DNS_SERVER_DOCKER_IMAGE_NAME:=asymmetric-effort/dns-server:local
 DNS_SERVER_DOCKER_CONTAINER_NAME:=dns-server
 DNS_SERVER_IP_ADDRESS:=10.37.129.2
+DNS_SERVER_HTTP_PORT:=8053
 DNS_SERVER_PORT:=53
-DNS_SERVER_VOLUME:=$(HOME)/dns-server
 
 dns_server/help:
 	@echo '$@'

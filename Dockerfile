@@ -11,10 +11,13 @@ COPY src/nginx.conf /etc/nginx/
 COPY src/entrypoint.sh /usr/bin/entrypoint.sh
 RUN rm -rf /etc/bind/*
 COPY src/bind/* /etc/bind/
+RUN chown -R bind:bind /etc/bind/
 RUN mkdir -p /run/named && \
     chown -R bind:bind /run/named && \
     chmod -R 660 /run/named
 
 WORKDIR root
+EXPOSE 80/tcp
+EXPOSE 53/udp
 ENTRYPOINT [ "/usr/bin/entrypoint.sh" ]
 CMD [ "/usr/bin/entrypoint.sh" ]
